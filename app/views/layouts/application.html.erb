@@ -1,15 +1,24 @@
+<!-- Nana  Asiedu-Ansah
+     2019 CUE
+     Used book application were students can trade
+     and buy textbooks
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UsedBooks</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= full_title(yield(:title)) %> | Used Books</title> <!-- Title of the page -->
+    <%= render 'layouts/rails_header' %>
   </head>
 
   <body>
+    <%= render'layouts/header' %>
+      <div class = "container">
+        <%= flash.each do |message_type,message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
