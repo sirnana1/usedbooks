@@ -1,7 +1,14 @@
+#   Nana Asiedu-Ansah
+#   Muhlenberg College
+#   CSI 370
+#   Spring 2019 CUE
+#
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #include SessionHelper
 
+  include SessionsHelper
+end
 
   private
   # To confirm user logged in
@@ -10,7 +17,7 @@ class ApplicationController < ActionController::Base
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url
-    end
+
   end
 
 end

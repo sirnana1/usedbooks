@@ -1,24 +1,30 @@
 <!-- Nana  Asiedu-Ansah
-     2019 CUE
+     CSI 370
+      Spring 2019 CUE
+
      Used book application were students can trade
-     and buy textbooks
+     and buy textbooks. This is the official layout
 -->
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %> | Used Books</title> <!-- Title of the page -->
+    <title><%= full_title(yield(:title)) %></title> <!-- Title of the page -->
+    <!-- rendering page partials pulling the layout and stylesheets -->
     <%= render 'layouts/rails_header' %>
-  </head>
 
+  </head>
   <body>
     <%= render'layouts/header' %>
-      <div class = "container">
-        <%= flash.each do |message_type,message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
+
+      <div class= "container">
+        <!-- Displays alert and  errors messages -->
+        <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+
     </div>
   </body>
 </html>

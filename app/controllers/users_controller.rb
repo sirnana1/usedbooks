@@ -1,4 +1,16 @@
+#   Nana Asiedu-Ansah
+#   Muhlenberg College
+#   CSI 370
+#   Spring 2019 CUE
+#
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+
+  def show
+    @user = User.find(params[:id])
+
+  end
   def new
     @user = User.new
   end
@@ -7,22 +19,49 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # store all emails in lowercase to avoid
     # duplicates and case-sensitive login errors
-    @user.email.downcase!
+    #@user.email.downcase
     if @user.save
-      flash[:notice] = "Account created successfully!"
-      redirect_to root_path
+      log_in @user
+      flash[:success] = "Welcome to USED BOOKS!"
+      redirect_to books_path
     else
   # If user fails model validation - probably a bad password or duplicate email:
-    flash.now.alert = "Oops, couldn't create account. Please make sure
-    you are using a valid email and password and try again."
-    render :new
+    render 'new'
   end
 end
+def edit
+  @user =User.find(params[:id])
+end
+def update
+  @user =User.find(params[:id])
+  if @user.update_attributes(user_params)
+    flash[:success] = "Profile Updated"
+    redirect_to books_path   # @user
+  else
+  render 'edit'
+end
+end
+
 private
 
 def user_params
 # strong parameters - whitelist of allowed fields #=> permit(:name, :email, ...)
 # that can be submitted by a form to the user model #=> require(:user)
 params.require(:user).permit(:name, :email, :password, :password_confirmation)
+
 end
+# Before filters
+
+# Confirm a logged-in user.
+def logged_in_user
+  unless logged_in?
+    flash[:danger] = "Please log in."
+    redirect_to login_url
+  end
+end
+
+def correct_user
+  @user = User.find(params[:id])
+  redirect_to(root_url) unless @user == current_user
+ end
 end

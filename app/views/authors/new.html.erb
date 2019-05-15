@@ -1,0 +1,32 @@
+
+<h2>Add New Author</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+     <%= form_for @author do |f| %>
+
+     <!-- displays error message -->
+    <% if @author.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@author.errors.count, "error") %>
+        </div>
+        <ul>
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <!-- end -->
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+
+      <%= f.submit "Submit", class: 'btn btn-primary' %>
+
+      <%= link_to "Cancel", books_path, class:'btn btn-default' %>
+    <% end %>
+  </div>
+</div>

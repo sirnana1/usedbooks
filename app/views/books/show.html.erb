@@ -1,0 +1,39 @@
+<% provide(:title, 'Book Info') %>
+<h2><% @book.title%> </h2>
+<div id="books-show">
+  <div class="book-show-left">
+    <%= image_tag('') %>
+  </div>
+  <div class="books-show-right">
+
+    <h3>Book Info:</h3>
+     <ul>
+       <li><strong>Title:</strong> <%= @book.title %> </li>
+        <li><strong>Category:</strong> <%= @book.category.name %> </li>
+
+        <li><strong>Author:</strong>
+       <%= @book.author.first_name %> <%= @book.author.last_name %> </li>
+        <li><strong>Publisher:</strong> <%= @book.publisher.name %> </li>
+
+        <li><strong>Year:</strong> <%= @book.year %> </li>
+
+        <li><strong>ISBN:</strong><%= @book.isbn %></li>
+        <li><strong>Format:</strong> <%= @book.format %></li>
+        <li><strong>Pages:</strong> <%= @book.pages %></li>
+         <li><strong>Price:</strong> $ <%= @book.price %>.00</li>
+
+     </ul>
+
+     <h4><strong>Description:</strong></h4>
+     <p> <%= @book.description %></p>
+     <!--<h3>Admin Functions</h3>-->
+     <%= link_to 'Edit', edit_book_path(@book.id)%> | <%= link_to 'Delete',
+     book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}%>
+
+  </div>
+   <br/
+  <div class="clearfix"> <%= link_to 'Go Book ', books_path,
+   class: 'btn btn-primary' %></div>
+  </div>
+  <div class="container"
+</div>

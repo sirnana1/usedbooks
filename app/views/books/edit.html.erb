@@ -1,0 +1,61 @@
+<% provide(:title, "Edit Book") %>
+<h2>Edit Book</h2>
+<div class="row">
+  <div class="col-md-6 col-sm-offset-3">
+     <%= form_for @book do |f| %>
+     <!-- displays error message -->
+    <% if @book.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@book.errors.count, "error") %>
+        </div>
+        <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <!-- end -->
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.label :isbn%>
+      <%= f.text_field :isbn, placeholder: "eg.1234567890234", class: 'form-control' %>
+
+      <%= f.label :category %>
+      <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]},
+      {:include_blank => 'Select One'}, class: 'form-control' %>
+
+      <%= f.label :author %>
+      <%= f.select :author_id, Author.all.collect {|x| [x.first_name + ' '+
+      x.last_name, x.id]},{:include_blank => 'Select One'}, class: 'form-control' %>
+      <%= f.label :publisher %>
+      <%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]},
+      {:include_blank => 'Select One'}, class: 'form-control' %>
+
+      <%= f.label :format %>
+      <%= f.text_field :format, class: 'form-control' %>
+
+      <%= f.label :pages %>
+      <%= f.number_field :pages, class: 'form-control' %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price, class: 'form-control' %>
+
+      <%= f.label :year %>
+      <%= f.text_field :year, class: 'form-control' %>
+
+      <%= f.label :buy %>
+      <%= f.text_field :buy, class: 'form-control' %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <!--<= f.label :trade >
+      <= f.text_field :trade, class: 'form-control' %>-->
+
+      <%= f.submit "Submit", class: "btn btn-primary"%>
+
+      <%= link_to "Cancel", books_path, class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
