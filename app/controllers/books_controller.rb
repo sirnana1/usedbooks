@@ -5,6 +5,8 @@
 #
 
 class BooksController < ApplicationController
+  before_action :logged_in_user, only: [ :update]
+  before_action :current_user, only: [ :update]
 
   def new
     @page_title = 'Add Book'
@@ -26,14 +28,14 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @books = Book.all
-    @categories = Category.all
+    @books = Book.all.order("title")
+    @categories = Category.all.order("ASC")
   end
 
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    flash[:notice] = 'Book Updated'
+    flash[:success] = 'Book Updated'
     redirect_to books_path
   end
 
@@ -44,14 +46,14 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     if @book.destroy
-    flash[:notice] = 'Book Revmoved'
+    flash[:success] = 'Book Revmoved'
     redirect_to books_path
   end
   end
 
   def index
-    @books = Book.all
-    @categories = Category.all
+    @books = Book.all.order("title")
+    @categories = Category.all.order("ACS")
 
   end
 

@@ -1,5 +1,5 @@
-<% provide(:title, 'Edit Publisher') %>
-<h2>Edit  Publishers</h2>
+<% provide(:title,"Edit Publisher") %>
+<h2>Edit Publishers</h2>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
      <%= form_for @publisher do |f| %>
@@ -21,6 +21,8 @@
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
+      <br>
+      <br>
       <%= link_to "Cancel", categories_path, class: "btn btn-default" %>
     <% end %>
   </div>

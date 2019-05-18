@@ -10,8 +10,12 @@
     <%= link_to "USED BOOKS", root_path , id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <!-- Home -->
+        <li><%= link_to root_path do %>
+          <i class="glyphicon glyphicon-home"></i>
+          Home
+        <% end %>
+        </li>
         <% if logged_in? %>
         <li><% link_to "Users", users_path %></li>
         <li class="dropdown">
@@ -28,7 +32,10 @@
             <li><%= link_to "Publisher", new_publisher_path %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "Log out", logout_path, method: :delete %>
+              <%= link_to logout_path, method: :delete  do %>
+              <i class="glyphicon glyphicon-off"></i>
+               Log out
+              <%end%>
             </li>
           </ul>
         </li>
@@ -44,7 +51,11 @@
           </ul>
         </li>
         <% else %>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to login_path  do %>
+          <i class="glyphicon glyphicon-log-out"></i>
+          Log In
+          <% end %>
+        </li>
         <% end %>
       </ul>
     </nav>
