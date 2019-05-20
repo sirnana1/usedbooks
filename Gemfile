@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 gem 'jquery-rails', '4.3.1'
-gem 'will_paginate',            '3.1.5'
+gem 'will_paginate','3.1.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

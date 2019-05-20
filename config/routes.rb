@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'books/edit'
   get 'books/destroy'
   get '/books/index'
-  
+
 
   get    '/help',    	to: 'static_pages#help' #, as: 'helf' # this allows the route name to be different from the default
   get    '/about',   	to: 'static_pages#about'
