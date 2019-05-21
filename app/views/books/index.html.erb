@@ -1,5 +1,5 @@
 <% provide(:title, "Books Listings") %>
-<h3><center>Books Listings</h3>
+<h3><center>Books Listings</center></h3>
 <div id="books-index">
   <% @books.each_slice(4) do |book| %>
   <div class="row">
@@ -7,11 +7,12 @@
     <div class ="row">
       <div class="col-md-3 col-sm-3">
         <h3><%=book.title%></h3>
+         <!--< #%= image_tag('') %>-->
         <%= link_to 'Go to Book Info', book_path(book),
          class: 'btn btn-primary' %>
     </div>
    <%end%>
-
   </div>
     <% end %>
+</div>
 </div>

@@ -83,7 +83,7 @@ p {
 
 footer {
   margin-top: 45px;
-  
+
   height: 100px;
   bottom: 0;
   padding-top: 5px;
@@ -298,7 +298,10 @@ span.picture {
   text-align: center;
 }
 #books-index img{
-  height:100%;
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  border: 1px;
 
 }
 #books-index  h3{

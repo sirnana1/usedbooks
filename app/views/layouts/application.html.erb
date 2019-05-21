@@ -17,16 +17,19 @@
   <body>
     <%= render'layouts/header' %>
 
+     <section>
       <div class= "container">
-        <!-- Displays alert and  errors messages -->
+        <%= yield :header %>
+
         <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
-    <div class="row">
-    <!--<#%= render 'layouts/sidebar'%>-->
-    <%= yield %>
+
+            <%= yield %>
+             
+        </div>
+
     <%= render 'layouts/footer' %>
-     </div>
-    </div>
+   </section>
   </body>
 </html>
