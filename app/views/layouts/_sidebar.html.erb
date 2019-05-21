@@ -1,24 +1,17 @@
-<%if logged_in? %>
 
-<%end%>
 <div class="list-group">
-  <% @categories.each do |category| %>
-     <%=link_to category.name, category_url(category_id), class:'list-group-item'%>
-  <% end %>
-<section>
-  <div class = "container">
     <div class = "row">
-      <div class = "col-md-4">
+      <div class = "col-md-2">
+        <ul class="list-group">
+          <li class="list-group-item">Computer Science</li>
+          <li class="list-group-item">Mathematics</li>
+          <li class="list-group-item">History</li>
+          <li class="list-group-item">Biology</li>
+          <li class="list-group-item">Chemistry</li>
+          <li class="list-group-item">Physics</li>
+        </ul>
         </div>
-        <div class = "col-md-8">
-          <ul class="list-group">
-            <li class="list-group-item">Computer Science</li>
-            <li class="list-group-item">Mathematics</li>
-            <li class="list-group-item">History</li>
-          </ul>
-
+        <div class = "col-md-10">
         </div>
-    </div>
   </div>
-
-</section>
+  </div>

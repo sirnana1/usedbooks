@@ -22,9 +22,11 @@
         <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+    <div class="row">
+    <!--<#%= render 'layouts/sidebar'%>-->
     <%= yield %>
     <%= render 'layouts/footer' %>
-
+     </div>
     </div>
   </body>
 </html>

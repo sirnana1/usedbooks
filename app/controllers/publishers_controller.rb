@@ -38,7 +38,7 @@ class PublishersController < ApplicationController
   def destroy
     @publisher = Publisher.find(params[:id])
     if @publisher.destroy
-    #flash[:success] = 'Book Revmoved'
+    flash[:success] = 'Book Revmoved'
     redirect_to books_path
   end
 end
