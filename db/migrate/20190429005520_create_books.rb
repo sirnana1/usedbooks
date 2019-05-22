@@ -7,11 +7,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.integer :publisher_id
       t.string :isbn
       t.string :year
-      t.string :price
-      t.string :buy
-      t.string :trade
-      t.string :format
-      t.integer :pages
+      t.string :price, precision: 5, scale: 2, default: 0
       t.text :description
 
       t.timestamps

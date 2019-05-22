@@ -19,9 +19,6 @@
     <!-- end -->
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
-      <%= f.label :isbn%>
-      <%= f.text_field :isbn, placeholder: "eg.1234567890234", class: 'form-control' %>
-
       <%= f.label :category %>
       <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]},
       {:include_blank => 'Select One'}, class: 'form-control' %>
@@ -33,25 +30,16 @@
       <%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]},
       {:include_blank => 'Select One'}, class: 'form-control' %>
 
-      <%= f.label :format %>
-      <%= f.text_field :format, class: 'form-control' %>
-
-      <%= f.label :pages %>
-      <%= f.number_field :pages, class: 'form-control' %>
-
-      <%= f.label :price %>
-      <%= f.text_field :price, class: 'form-control' %>
+      <%= f.label :isbn%>
+      <%= f.text_field :isbn, placeholder: "eg.1234567890234", class: 'form-control' %>
 
       <%= f.label :year %>
       <%= f.text_field :year, class: 'form-control' %>
+      <%= f.label :price %>
+      <%= f.text_field :price, class: 'form-control' %>
 
-      <%= f.label :buy %>
-      <%= f.text_field :buy, class: 'form-control' %>
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control' %>
-
-      <!--<= f.label :trade >
-      <= f.text_field :trade, class: 'form-control' %>-->
 
       <%= f.submit "Submit", class: "btn btn-primary"%>
       <br>

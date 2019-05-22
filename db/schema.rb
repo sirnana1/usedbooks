@@ -47,11 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_172259) do
     t.integer "publisher_id"
     t.string "isbn"
     t.string "year"
-    t.string "price"
-    t.string "buy"
-    t.string "trade"
-    t.string "format"
-    t.integer "pages"
+    t.string "price", default: "0"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

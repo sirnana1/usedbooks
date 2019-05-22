@@ -54,12 +54,11 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.order("title")
     @categories = Category.all.order("ACS")
-
   end
 
   private
       def book_params
         params.require(:book).permit(:title, :category_id, :author_id,:publisher_id,
-          :isbn, :price, :format, :buy, :trade, :description, :pages, :year)
+          :isbn, :year, :price, :description)
       end
 end
